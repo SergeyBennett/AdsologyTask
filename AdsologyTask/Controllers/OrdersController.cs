@@ -94,10 +94,14 @@ namespace AdsologyTask.Controllers
 
         [HttpGet]
         [Route("Filter")]
-        public List<Order> Filter(string filter)
+        public ActionResult<IEnumerable<Order>> Filter(string filter)
         {
-            IQueryable<Order> query = _context.Orders.AsQueryable();
+            if (string.IsNullOrEmpty(filter))
+            {
+                return BadRequest();
+            }
 
+            IQueryable<Order> query = _context.Orders.AsQueryable();
             var filterBy = filter.Trim().ToLowerInvariant();
             if (!string.IsNullOrEmpty(filterBy))
             {
@@ -105,7 +109,7 @@ namespace AdsologyTask.Controllers
                         .Where(x => x.OxId.ToString().Contains(filterBy));
             }
 
-            return query.ToList();
+            return Ok(query.ToList());
         }
 
         [HttpPost]
