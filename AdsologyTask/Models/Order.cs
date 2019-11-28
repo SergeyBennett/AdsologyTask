@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace AdsologyTask.Models
 {
-    public partial class Orders
+    [Serializable, XmlRoot("order")]
+    public partial class Order
     {
-        public Orders()
+        public Order()
         {
             Articles = new HashSet<Articles>();
             Payments = new HashSet<Payments>();
@@ -18,7 +20,7 @@ namespace AdsologyTask.Models
 
         public virtual OrderStatuses OrderStatusNavigation { get; set; }
         public virtual BillingAddresses BillingAddresses { get; set; }
-        public virtual ICollection<Articles> Articles { get; set; }
-        public virtual ICollection<Payments> Payments { get; set; }
+        public virtual HashSet<Articles> Articles { get; set; }
+        public virtual HashSet<Payments> Payments { get; set; }
     }
 }

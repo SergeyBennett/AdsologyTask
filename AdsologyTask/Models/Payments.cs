@@ -10,6 +10,6 @@ namespace AdsologyTask.Models
         public decimal Amount { get; set; }
         public long OrderOxId { get; set; }
 
-        public virtual Orders OrderOx { get; set; }
+        public virtual Order OrderOx { get; set; }
     }
 }

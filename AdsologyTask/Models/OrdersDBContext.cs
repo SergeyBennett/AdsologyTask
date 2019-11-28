@@ -18,7 +18,7 @@ namespace AdsologyTask.Models
         public virtual DbSet<Articles> Articles { get; set; }
         public virtual DbSet<BillingAddresses> BillingAddresses { get; set; }
         public virtual DbSet<OrderStatuses> OrderStatuses { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Payments> Payments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -88,7 +88,7 @@ namespace AdsologyTask.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Orders>(entity =>
+            modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.OxId);
 

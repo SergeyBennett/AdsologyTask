@@ -7,12 +7,12 @@ namespace AdsologyTask.Models
     {
         public OrderStatuses()
         {
-            Orders = new HashSet<Orders>();
+            Orders = new HashSet<Order>();
         }
 
         public byte Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual HashSet<Order> Orders { get; set; }
     }
 }

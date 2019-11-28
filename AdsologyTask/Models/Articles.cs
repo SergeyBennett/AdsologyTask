@@ -12,6 +12,6 @@ namespace AdsologyTask.Models
         public double BrutPrice { get; set; }
         public long OrderOxId { get; set; }
 
-        public virtual Orders OrderOx { get; set; }
+        public virtual Order OrderOx { get; set; }
     }
 }
