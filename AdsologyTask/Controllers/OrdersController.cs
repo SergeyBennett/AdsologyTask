@@ -42,7 +42,7 @@ namespace AdsologyTask.Controllers
 
         //POST: api/Orders
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder([FromBody]Order order)
+        public async Task<ActionResult<Order>> PostOrder([FromForm]Order order)
         {
             _context.Orders.Add(order);
             try
@@ -66,7 +66,7 @@ namespace AdsologyTask.Controllers
 
         [HttpPost]
         [Route("PostMultiple")]
-        public async Task<IActionResult> PostOrders(Orders orders)
+        public async Task<IActionResult> PostOrders([FromForm]Orders orders)
         {
             foreach (Order order in orders.OrderList)
             {
